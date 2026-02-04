@@ -21,6 +21,13 @@ CREATE TABLE users(
     role ENUM('admin', 'user') DEFAULT 'user'
 );
 
+
 INSERT INTO users (username,email,password,role)
 VALUES
 ("admin","admin@admin.hu","$argon2i$v=19$m=16,t=2,p=1$MERDNmhDb09FaEVsOHg0YQ$vhnGEje4mdpwGNymOY44eQ","admin");
+
+CREATE TABLE favourites(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    book_id INT
+)
