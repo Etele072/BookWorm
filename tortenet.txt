@@ -1,0 +1,3 @@
+A Könyvkölcsönző weboldala 2018-ban indult, elsősorban belső tesztelési célokra. A kezdeti verzió funkciói és megjelenése egy gyors prototípus keretében készültek, a véglegesítést egy későbbi fejlesztési fázisra ütemeztük. 2020-ban azonban a járványügyi helyzet miatt hirtelen megnőtt az igény az online kiszolgálás iránt, így döntöttünk úgy, hogy az oldalt élesítjük, hogy olvasóink otthonról is gond nélkül hozzáférhessenek állományunkhoz.
+Az azóta eltelt időszakban a rendszer folyamatosan, stabilan üzemel. Bár a felület az eredeti prototípus jegyeit viseli magán, a funkciók megbízhatóságát és a kiszolgálás folyamatosságát helyeztük előtérbe. Célunk továbbra is egyszerű: hogy a könyvek eljussanak az olvasókhoz.
+
