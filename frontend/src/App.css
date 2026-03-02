@@ -16,7 +16,7 @@
 color: #2b4c1e;
 text-decoration: none;
 font-weight: bold;
-font-size: 1.2rem;
+font-size: 1.3rem;
 margin-left: 30px;
 background: none;
 border: none;
@@ -25,4 +25,64 @@ cursor: pointer;
 
 .navlinks a:hover, .navbutton:hover {
   color: #a4e58a;
+}
+
+.bookcard {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bookcard:hover {
+  transform: scale(1.02);
+}
+
+.modal-overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #e8e6d1;
+  padding: 30px;
+  border-radius: 15px;
+  border: 3px solid #5b9b42;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow:  0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-image {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  background-color: #cac9bc;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #5b9b42;
+  color: white;
+  border:none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #2b4c1e;
 }
