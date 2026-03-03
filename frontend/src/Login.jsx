@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 
-function Login({ setLoggedin }) {
+function Login({ setLoggedin, darkMode }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ function Login({ setLoggedin }) {
     };
 
     return (
-        <div style={{ backgroundColor: "#e8e6d1", minHeight: "100vh", display: "flex", alignItems: "center" }}>
+        <div style={{ backgroundColor: darkMode ? "#2c2c2c" : "#e8e6d1", color: darkMode ? "white" : "black", minHeight: "100vh", display: "flex", alignItems: "center", transition: "all 0.3s ease"}}>
             <Container>
                 <Row className="justify-content-center">
                     <Col md={6} lg={4}>

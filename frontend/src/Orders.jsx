@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Card, Badge } from "react-bootstrap";
 
-function Orders() {
+function Orders({darkMode}) {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ function Orders() {
     }, []);
 
     return (
-        <div style={{ backgroundColor: "#e8e6d1", minHeight: "100vh", paddingTop: "40px" }}>
+        <div style={{ backgroundColor: darkMode ? "#2c2c2c" : "#e8e6d1", color: darkMode ? "white" : "black", minHeight: "100vh", paddingTop: "40px", transition: "all 0.3s ease" }}>
             <Container>
                 <h2 className="fw-bold mb-4" style={{ color: "#2b4c1e" }}>Rendeléseim</h2>
                 {orders.length === 0 ? <p>Még nem rendeltél semmit.</p> : 

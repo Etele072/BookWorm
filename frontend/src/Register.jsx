@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button, Alert, Fade } from "react-bootstrap";
 
-function Register() {
+function Register({darkMode}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    
-    // Állapotok a visszajelzéshez
     const [status, setStatus] = useState({ show: false, message: "", variant: "" });
 
     const handleRegister = async (e) => {
@@ -30,7 +28,6 @@ function Register() {
         }
     };
 
-    // Automatikusan eltünteti az üzenetet 4 másodperc után
     useEffect(() => {
         if (status.show) {
             const timer = setTimeout(() => setStatus({ ...status, show: false }), 4000);
@@ -39,17 +36,18 @@ function Register() {
     }, [status.show]);
 
     return (
-        <div style={{ 
-            backgroundColor: "#e8e6d1", 
-            minHeight: "100vh", 
-            display: "flex", 
-            alignItems: "center",
-            paddingBottom: "10vh" // Ez tolja feljebb a kártyát a képernyőn
-        }}>
+<div style={{ 
+    backgroundColor: darkMode ? "#2c2c2c" : "#e8e6d1", 
+    color: darkMode ? "white" : "black",
+    minHeight: "100vh", 
+    display: "flex", 
+    alignItems: "center",
+    paddingBottom: "10vh",
+    transition: "all 0.3s ease"
+}}>
             <Container>
                 <Row className="justify-content-center">
                     <Col md={6} lg={4}>
-                        {/* Menőbb visszajelzés alert helyett */}
                         <div style={{ height: "60px" }}> 
                             <Fade in={status.show}>
                                 <div>

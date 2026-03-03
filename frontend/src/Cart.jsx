@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Table, Button, Card } from "react-bootstrap";
 
-function Cart({ cart, setCart }) {
+function Cart({ cart, setCart, darkMode }) {
     const total = cart.reduce((sum, item) => sum + (item.price  || 3500), 0);
 
     const handleOrder = async () => {
@@ -21,13 +21,13 @@ function Cart({ cart, setCart }) {
     };
 
     return (
-        <div style={{ backgroundColor: "#e8e6d1", minHeight: "100vh", paddingTop: "40px" }}>
+        <div style={{ backgroundColor: darkMode ? "#2c2c2c" : "#e8e6d1", color: darkMode ? "white" : "black", minHeight: "100vh", paddingTop: "40px", transition: "all 0.3s ease" }}>
             <Container>
-                <Card className="border-0 shadow-sm p-4" style={{ backgroundColor: "#f4f3e6" }}>
+                <Card className="border-0 shadow-sm p-4" style={{ backgroundColor: darkMode ? "#3a3939" : "#f4f3e6", color: darkMode ? "white" : "black" }}>
                     <h2 className="fw-bold mb-4" style={{ color: "#2b4c1e" }}>Kosár tartalma</h2>
                     {cart.length === 0 ? <p>A kosarad jelenleg üres.</p> : (
                         <>
-                            <Table hover style={{ color: "#2b4c1e" }}>
+                            <Table hover style={{color: "#2b4c1e" }}>
                                 <thead><tr><th>Cím</th><th>Ár</th><th>Művelet</th></tr></thead>
                                 <tbody>
                                     {cart.map((item, i) => (

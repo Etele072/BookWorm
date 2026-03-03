@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Modal, Button } from "react-bootstrap";
 
-function Home({ cart, setCart }) {
+function Home({ cart, setCart, darkMode }) {
     const [books, setBooks] = useState([]);
     const [maiNap, setMaiNap] = useState("");
     const [selectedBook, setSelectedBook] = useState(null);
@@ -31,7 +31,7 @@ function Home({ cart, setCart }) {
     };
 
     return (
-        <div style={{ backgroundColor: "#e8e6d1", minHeight: "100vh" }}>
+        <div style={{ backgroundColor: darkMode ? "#2c2c2c" : "#e8e6d1", minHeight: "100vh", color: darkMode ? "white" : "black", transition: "all 0.3s ease" }}>
             <Container className="pt-4">
                 <div className="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3" style={{ borderColor: "#5b9b42 !important" }}>
                     <h2 className="fw-bold m-0" style={{ color: "#2b4c1e" }}>Könyvválaszték</h2>
@@ -41,9 +41,9 @@ function Home({ cart, setCart }) {
                 <Row xs={1} md={3} className="g-4 pb-5">
                     {books.map((book) => (
                         <Col key={book.id}>
-                            <Card 
-                                className="h-100 border-0 shadow-sm rounded-3" 
-                                style={{ backgroundColor: "#f4f3e6", cursor: 'pointer' }}
+                            <Card
+                                className="h-100 border-0 shadow-sm rounded-3"
+                                style={{ backgroundColor: darkMode ? "#424242" : "#f4f3e6", cursor: 'pointer' }}
                                 onClick={() => {
                                     setSelectedBook(book);
                                     setIsHearted(false);
@@ -63,7 +63,7 @@ function Home({ cart, setCart }) {
                 </Row>
 
                 <Modal show={selectedBook !== null} onHide={() => setSelectedBook(null)} centered size="lg">
-                    <div style={{ backgroundColor: "#e8e6d1", borderRadius: "15px", border: "3px solid #5b9b42" }}>
+                    <div className="w-100 p-2" style={{ backgroundColor: "#e8e6d1", borderRadius: "15px", border: "3px solid #5b9b42" }}>
                         {selectedBook && (
                             <>
                                 <Modal.Header closeButton>
@@ -74,8 +74,9 @@ function Home({ cart, setCart }) {
                                         <Col md={5} className="text-center">
                                             <img src={`/images/konyv${selectedBook.id}.png`} className="img-fluid rounded shadow" style={{ maxHeight: '350px' }} />
                                         </Col>
-                                        <Col md={7}>
+                                        <Col md={7} className="text-start d-flex flex-column justify-content-center">
                                             <h4 style={{ color: "#5b9b42" }} className="fw-bold">{selectedBook.author}</h4>
+                                            <p className="fw-bold" style={{ color: "#2b4c1e", marginBottom: "10px" }}>Kiadás éve: {selectedBook.release_date}</p>
                                             <p style={{ color: "#2b4c1e" }}>{selectedBook.description || "Kiváló olvasmány."}</p>
                                             <div className="d-flex gap-2 mt-4">
                                                 <Button style={{ backgroundColor: "#5b9b42", border: "none", flex: 2 }} onClick={() => addToCart(selectedBook)}>Kosárba</Button>

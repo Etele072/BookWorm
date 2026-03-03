@@ -81,7 +81,7 @@ app.get("/me", authenticateToken, async (req, res) => {
 
 app.get("/books", async (req, res) => {
     try {
-        const [rows] = await pool.query("SELECT id, title, author, release_date FROM books");
+        const [rows] = await pool.query("SELECT id, title, author, release_date, description FROM books");
         res.status(200).json(rows);
     } catch (error) {
         res.status(500).json({ message: "Szerver hiba a könyveknél" });
